@@ -419,7 +419,7 @@ class TxEditor(WindowModalDialog):
                 _('This may result in higher transactions fees.')
             ]))
         self.use_multi_change_menu.setEnabled(self.wallet.use_change)
-        # RVN cannot replace mempool txs
+        # XNA cannot replace mempool txs
         #add_pref_action(
         #    self.config.WALLET_BATCH_RBF,
         #    self.toggle_batch_rbf,

@@ -169,7 +169,7 @@ class ExchangeBase(Logger):
 
     def get_cached_spot_quote(self, ccy: str) -> Decimal:
         """Returns the cached exchange rate as a Decimal"""
-        if ccy == 'RVN':
+        if ccy == 'XNA':
             return Decimal(1)
         rate = self._quotes.get(ccy)
         if rate is None:
@@ -179,22 +179,20 @@ class ExchangeBase(Logger):
             return Decimal('NaN')
         return Decimal(rate)
 
-class CoinGecko(ExchangeBase):
-
+class TXBit(ExchangeBase):
+    async def get_currencies(self):
+        return ['USDT']
+    
     async def get_rates(self, ccy):
-        dicts = await self.get_json('api.coingecko.com',
-                                    '/api/v3/coins/ravencoin/market_chart?vs_currency=%s&days=1' % ccy)
-        return {ccy: to_decimal(dicts['prices'][-1][1])}
+        dicts = await self.get_json('api.txbit.io',
+                            '/api/public/getticker?market=XNA/%s' % ccy)
+        return {ccy: to_decimal(dicts['result']['Last'])}
 
     def history_ccys(self):
-        # CoinGecko seems to have historical data for all ccys it supports
-        return CURRENCIES[self.name()]
+        return []
 
     async def request_history(self, ccy):
-        history = await self.get_json('api.coingecko.com',
-                                      '/api/v3/coins/ravencoin/market_chart?vs_currency=%s&days=max' % ccy)
-        return dict([(datetime.utcfromtimestamp(h[0]/1000).strftime('%Y-%m-%d'), str(h[1]))
-                     for h in history['prices']])
+        return {}    
 
 def dictinvert(d):
     inv = {}
@@ -301,7 +299,7 @@ class FxThread(ThreadJob, EventListener, NetworkRetryManager[str]):
         return text.replace(util.THOUSANDS_SEP, "")
 
     def ccy_amount_str(self, amount, *, add_thousands_sep: bool = False, ccy=None) -> str:
-        prec = CCY_PRECISIONS.get(self.ccy if ccy is None else ccy, 2)
+        prec = CCY_PRECISIONS.get(self.ccy if ccy is None else ccy, 2) + 3
         fmt_str = "{:%s.%df}" % ("," if add_thousands_sep else "", max(0, prec))
         try:
             rounded_amount = round(amount, prec)
