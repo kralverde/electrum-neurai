@@ -793,7 +793,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, Logger, QtEventListener):
         d = self.network.get_donation_address()
         if d:
             host = self.network.get_parameters().server.host
-            self.handle_payment_identifier('raven:%s?message=donation for %s' % (d, host))
+            self.handle_payment_identifier('nuerai:%s?message=donation for %s' % (d, host))
         else:
             self.show_error(_('No donation address for this server'))
 

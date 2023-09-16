@@ -118,8 +118,8 @@ app = BUNDLE(
         'NSSupportsAutomaticGraphicsSwitching': 'True',
         'CFBundleURLTypes':
             [{
-                'CFBundleURLName': 'raven',
-                'CFBundleURLSchemes': ['raven', ],
+                'CFBundleURLName': 'nuerai',
+                'CFBundleURLSchemes': ['nuerai', ],
             }],
         'LSMinimumSystemVersion': '10.13.0',
         'NSCameraUsageDescription': 'Electrum would like to access the camera to scan for QR codes',

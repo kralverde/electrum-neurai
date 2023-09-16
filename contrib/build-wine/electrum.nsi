@@ -7,7 +7,7 @@
 ;Variables
 
   !define PRODUCT_NAME "Electrum Neurai"
-  !define PRODUCT_WEB_SITE "https://github.com/Electrum-XNA-SIG/electrum-neurai"
+  !define PRODUCT_WEB_SITE "https://github.com/NeuraiProject/electrum-neurai"
   !define PRODUCT_PUBLISHER "The Neurai Community"
   !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
 
@@ -133,10 +133,10 @@ Section
 
 
   ;Links bitcoin: and lightning: URIs to Electrum
-  WriteRegStr HKCU "Software\Classes\raven" "" "URL:raven Protocol"
-  WriteRegStr HKCU "Software\Classes\raven" "URL Protocol" ""
-  WriteRegStr HKCU "Software\Classes\raven" "DefaultIcon" "$\"$INSTDIR\electrum.ico, 0$\""
-  WriteRegStr HKCU "Software\Classes\raven\shell\open\command" "" "$\"$INSTDIR\electrum-neurai-${PRODUCT_VERSION}.exe$\" $\"%1$\""
+  WriteRegStr HKCU "Software\Classes\nuerai" "" "URL:nuerai Protocol"
+  WriteRegStr HKCU "Software\Classes\nuerai" "URL Protocol" ""
+  WriteRegStr HKCU "Software\Classes\nuerai" "DefaultIcon" "$\"$INSTDIR\electrum.ico, 0$\""
+  WriteRegStr HKCU "Software\Classes\nuerai\shell\open\command" "" "$\"$INSTDIR\electrum-neurai-${PRODUCT_VERSION}.exe$\" $\"%1$\""
   ;WriteRegStr HKCU "Software\Classes\lightning" "" "URL:lightning Protocol"
   ;WriteRegStr HKCU "Software\Classes\lightning" "URL Protocol" ""
   ;WriteRegStr HKCU "Software\Classes\lightning" "DefaultIcon" "$\"$INSTDIR\electrum.ico, 0$\""
