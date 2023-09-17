@@ -155,7 +155,7 @@ class NeuraiMainnet(AbstractNet):
 
     BURN_AMOUNTS = BurnAmounts(
         IssueAssetBurnAmount=1000,
-        ReissueAssetBurnAmount=1200,
+        ReissueAssetBurnAmount=200,
         IssueSubAssetBurnAmount=200,
         IssueUniqueAssetBurnAmount=10,
         IssueMsgChannelAssetBurnAmount=200,
