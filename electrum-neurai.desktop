@@ -15,7 +15,7 @@ StartupNotify=true
 StartupWMClass=electrum_neurai
 Terminal=false
 Type=Application
-MimeType=x-scheme-handler/raven
+MimeType=x-scheme-handler/neurai
 Actions=Testnet;
 
 [Desktop Action Testnet]
