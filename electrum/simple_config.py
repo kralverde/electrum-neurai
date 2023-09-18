@@ -860,8 +860,8 @@ class SimpleConfig(Logger):
     # note: 'use_change' and 'multiple_change' are per-wallet settings
 
     FX_USE_EXCHANGE_RATE = ConfigVar('use_exchange_rate', default=False, type_=bool)
-    FX_CURRENCY = ConfigVar('currency', default='USDT', type_=str)
-    FX_EXCHANGE = ConfigVar('use_exchange', default='TXBit', type_=str)  # default exchange should ideally provide historical rates
+    FX_CURRENCY = ConfigVar('currency', default='BTC', type_=str)
+    FX_EXCHANGE = ConfigVar('use_exchange', default='CoinGecko', type_=str)  # default exchange should ideally provide historical rates
     FX_HISTORY_RATES = ConfigVar('history_rates', default=False, type_=bool)
     FX_HISTORY_RATES_CAPITAL_GAINS = ConfigVar('history_rates_capital_gains', default=False, type_=bool)
     FX_SHOW_FIAT_BALANCE_FOR_ADDRESSES = ConfigVar('fiat_address', default=False, type_=bool)

@@ -179,6 +179,23 @@ class ExchangeBase(Logger):
             return Decimal('NaN')
         return Decimal(rate)
 
+class CoinGecko(ExchangeBase):
+
+    async def get_rates(self, ccy):
+        dicts = await self.get_json('api.coingecko.com',
+                                    '/api/v3/coins/neurai/market_chart?vs_currency=%s&days=1' % ccy)
+        return {ccy: to_decimal(dicts['prices'][-1][1])}
+
+    def history_ccys(self):
+        # CoinGecko seems to have historical data for all ccys it supports
+        return CURRENCIES[self.name()]
+
+    async def request_history(self, ccy):
+        history = await self.get_json('api.coingecko.com',
+                                      '/api/v3/coins/neurai/market_chart?vs_currency=%s&days=max' % ccy)
+        return dict([(datetime.utcfromtimestamp(h[0]/1000).strftime('%Y-%m-%d'), str(h[1]))
+                     for h in history['prices']])
+
 class TXBit(ExchangeBase):
     async def get_currencies(self):
         return ['USDT']
