@@ -48,13 +48,13 @@ $WINE_PYTHON -m pip install --no-build-isolation --no-dependencies --no-warn-scr
 
 
 info "Installing pre-built neurai requirements..."
-X16R="x16r_hash-1.0.1-cp310-cp310-win32.whl"
+X16R="x16r_hash-1.0-cp310-cp310-win32.whl"
 KAWPOW="kawpow-0.9.4.4-cp310-cp310-win32.whl"
 
 download_if_not_exist "$CACHEDIR/$X16R" "https://raw.githubusercontent.com/kralverde/electrum-ravencoin-wheels/master/$X16R"
-verify_hash "$CACHEDIR/$X16R" "3d1488c7276e6ed7102f830f064ea2dc15ca7d7e71dd0704fd6573b691d80a8c"
+verify_hash "$CACHEDIR/$X16R" "65510849dbcc7ae174de9cd33c3c25a02b6fa83a83cd1697b07fbd1e2e039dd8"
 download_if_not_exist "$CACHEDIR/$KAWPOW" "https://raw.githubusercontent.com/kralverde/electrum-ravencoin-wheels/master/$KAWPOW"
-verify_hash "$CACHEDIR/$KAWPOW" "c0112f9d7789ca62b6b7399b404c2d96c61b7bb926f9da9f555c7a82f98d3492"
+verify_hash "$CACHEDIR/$KAWPOW" "9af4f718805628e35faeed815d07e23e8e9d54287f2e58227772ed7c8f5d0d2b"
 
 $WINE_PYTHON -m pip install --no-warn-script-location --cache-dir "$WINE_PIP_CACHE_DIR" "$CACHEDIR/$X16R"
 $WINE_PYTHON -m pip install --no-warn-script-location --cache-dir "$WINE_PIP_CACHE_DIR" "$CACHEDIR/$KAWPOW"
