@@ -54,7 +54,7 @@ KAWPOW="kawpow-0.9.4.4-cp310-cp310-win32-test.whl"
 download_if_not_exist "$CACHEDIR/$X16R" "https://raw.githubusercontent.com/kralverde/electrum-ravencoin-wheels/master/$X16R"
 verify_hash "$CACHEDIR/$X16R" "65510849dbcc7ae174de9cd33c3c25a02b6fa83a83cd1697b07fbd1e2e039dd8"
 download_if_not_exist "$CACHEDIR/$KAWPOW" "https://raw.githubusercontent.com/kralverde/electrum-ravencoin-wheels/master/$KAWPOW"
-verify_hash "$CACHEDIR/$KAWPOW" "fd7abb2fa80efa5e040164ff10b16c7226197c8c71326ebe7f9af84ebb7a96b7"
+verify_hash "$CACHEDIR/$KAWPOW" "9cda5207b4cba9123838fb800173f6539d2d861e7b59f60729da9d170584225a"
 
 $WINE_PYTHON -m pip install --no-warn-script-location --cache-dir "$WINE_PIP_CACHE_DIR" "$CACHEDIR/$X16R"
 $WINE_PYTHON -m pip install --no-warn-script-location --cache-dir "$WINE_PIP_CACHE_DIR" "$CACHEDIR/$KAWPOW"
